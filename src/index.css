@@ -10,3 +10,17 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+#home {
+    background-image: url("./assets/background.jpg");
+    /* make the background fill whole screen and resize with screen size */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* make the background fixed */
+    background-attachment: fixed;
+
+    /* make the background cover the whole screen */
+    height: 100vh;
+    width: 100vw;
+}

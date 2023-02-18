@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
+import "./index.css";
 
 function App() {
     return (
-        <div className="App">
+        <div className="App bg-[url('./assets/background.jpg')] ">
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
