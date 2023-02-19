@@ -11,20 +11,43 @@ const Home = () => {
   });
   const [backendData, setBackendData] = useState([{}]);
 
+function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
+
   const handleClick = () => {
+
+
     let email = document.querySelector("input").value;
-    let url = "/data/" + email;
-    fetch(url).then((res) =>
-      res.json().then((data) => {
-        // Setting a data from api
-        setdata({
-          PackageNo: data.PackageNo,
-          Prizes: data.Prizes,
-          Status: data.Status,
-          email: data.email,
-        });
-      })
-    );
+
+    if (validateEmail(email) == true) {
+
+      let url = "/data/" + email;
+      fetch(url).then((res) =>
+        res.json().then((data) => {
+          // Setting a data from api
+          setdata({
+            PackageNo: data.PackageNo,
+            Prizes: data.Prizes,
+            Status: data.Status,
+            email: data.email,
+          });
+        })
+      );
+    }
+
+    else {
+      alert("Invalid Email Address");
+    }
   };
   return (
     <div id="home">
