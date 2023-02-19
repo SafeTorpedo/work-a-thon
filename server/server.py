@@ -4,12 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 
 app = Flask(__name__)
-
-# db = mysql.connector.connect(host='localhost',
-#                              user='root',
-#                              passwd='root',
-#                              db='work-a-thon')
-
 db = SQLAlchemy()
 
 
@@ -37,33 +31,24 @@ create_database(app)
 
 @app.route('/data/<email>')
 def get_time(email):
-    print(email)
+    try:
+        Package = Packagedetail.query.filter_by(email=email).first()
+        data = {
+            'PackageNo': Package.packageNo,
+            'Prizes': Package.prizes,
+            'Status': Package.status,
+            'email': Package.email,
+        }
+        return data
 
-# try:
-    # cur = db.cursor()
-    # cur.execute('SELECT * FROM packagedetail WHERE email = %s', (email,))
-    # row_headers=[x[0] for x in cur.description]
-    # rv = cur.fetchall()
-    # for result in rv:
-    #     data=dict(zip(row_headers,result))
-    Package = Packagedetail.query.filter_by(email=email).first()
-
-    data = {
-        'PackageNo': Package.packageNo,
-        'Prizes': Package.prizes,
-        'Status': Package.status,
-        'email': Package.email,
-    }
-    return data
-
-# except:
-#     data = {
-#       'PackageNo': 'No Data Found',
-#       'Prizes': 'No Data Found',
-#       'Status': 'No Data Found',
-#       'email': 'No Data Found',
-#     }
-#     return data
+    except:
+        data = {
+            'PackageNo': 'No Data Found',
+            'Prizes': 'No Data Found',
+            'Status': 'No Data Found',
+            'email': 'No Data Found',
+        }
+        return data
 
 
 if __name__ == '__main__':
