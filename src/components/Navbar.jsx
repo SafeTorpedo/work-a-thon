@@ -22,7 +22,7 @@ const Navbar = (props) => {
             </h1>
             <ul className="hidden md:flex mt-5">
                 <li className="p-4">
-                    <Link to="/">About us</Link>
+                    <Link to="/about">About us</Link>
                 </li>
             </ul>
             <div onClick={handleNav} className="block md:hidden">
@@ -51,7 +51,7 @@ const Navbar = (props) => {
                 </h1>
                 <ul className="pt-12 uppercase p-4">
                     <li className="p-4">
-                        <Link to="/">About Us</Link>
+                        <Link to="/about">About Us</Link>
                     </li>
                 </ul>
             </div>
