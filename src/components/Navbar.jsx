@@ -17,7 +17,7 @@ const Navbar = (props) => {
                         alt="icon"
                         className="inline w-10 h-10 mr-2"
                     />
-                    Project Name
+                    TrackEase
                 </Link>
             </h1>
             <ul className="hidden md:flex mt-5">
@@ -47,7 +47,7 @@ const Navbar = (props) => {
                         alt="icon"
                         className="inline w-10 h-10 mr-2"
                     />
-                    Project Name
+                    TrackEase
                 </h1>
                 <ul className="pt-12 uppercase p-4">
                     <li className="p-4">
