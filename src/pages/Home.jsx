@@ -34,7 +34,17 @@ const Home = () => {
         Fetch your details
       </h1>
 
-      <div className="flex flex-col items-center justify-center opacity-95 mt-64">
+      <div className="text-white text-xl mt-5">
+          {data.email}
+          <br />
+          {data.PackageNo}
+          <br />
+          {data.Prizes}
+          <br />
+          {data.Status}
+        </div>
+
+      <div className="flex flex-col items-center justify-center opacity-95 mt-32">
         <div className="flex flex-col items-center justify-center bg-gray-200 rounded-lg p-4">
           <input
             type="text"
@@ -49,13 +59,7 @@ const Home = () => {
             Search
           </button>
         </div>
-        {data.email}
-        <br />
-        {data.PackageNo}
-        <br />
-        {data.Prizes}
-        <br />
-        {data.Status}
+       
       </div>
     </div>
   );
